@@ -20,7 +20,7 @@ class Authentication:
 
 class MongoAuthentication(Authentication):
     def __init__(self, database, collection, **kwargs):
-        self._conn = pymongo.Connection(**kwargs)
+        self._conn = pymongo.MongoClient(**kwargs)
         self._coll = self._conn[database][collection]
 
     def log_in(self, username, password):

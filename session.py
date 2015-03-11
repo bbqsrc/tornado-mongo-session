@@ -5,7 +5,7 @@ import logging
 
 class MongoSessions:
     def __init__(self, database, collection, timeout=5, **kwargs):
-        self._conn = pymongo.Connection(**kwargs)
+        self._conn = pymongo.MongoClient(**kwargs)
         self._coll = self._conn[database][collection]
         self._timeout = timeout
 
